@@ -35,7 +35,7 @@ const usePages = (currentPage:number , totalCount:number , pageSize:number ) => 
             ...oldArray,
             i
           ])
-        }
+        } 
       }
     }
 
