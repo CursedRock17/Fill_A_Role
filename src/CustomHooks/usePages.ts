@@ -1,7 +1,7 @@
 export const DOTS = "...";
 import { useState, useEffect } from "react";
 
-const usePages = (currentPage:number , totalCount:number , pageSize:number ) => {
+const usePages = (currentPage:number , finalList:any , pageSize:number ) => {
 
   const [pagination, setPagination] = useState<Array<number | string>>([]);
 
@@ -20,8 +20,9 @@ const usePages = (currentPage:number , totalCount:number , pageSize:number ) => 
     
   useEffect(() => {
 
+    if(currentPage && finalList && pageSize){
     const firstPage = 1;
-    const lastPage = Math.ceil(totalCount / pageSize);
+    const lastPage = Math.ceil(finalList.length / pageSize);
     const pageDifference = lastPage - firstPage
 
     if(firstPage == lastPage){
@@ -61,7 +62,10 @@ const usePages = (currentPage:number , totalCount:number , pageSize:number ) => 
     else {
       setPagination([ firstPage, DOTS, currentPage - 1, currentPage, currentPage + 1, DOTS, lastPage])
     }
-  }, [currentPage, totalCount])
+
+    }
+  }, [currentPage, finalList.length])
+
 
   return pagination;
 }

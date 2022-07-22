@@ -302,7 +302,7 @@ const GroupsList = (props:any) => {
 
    const pageNumbers = usePages(
       pageNum,
-      props.finalList.length,
+      props.finalList,
       perPage
    );
 

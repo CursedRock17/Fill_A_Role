@@ -50,7 +50,7 @@ export const UsersList:NextPage<{finalList:  GroupType[]}> = ({ finalList }) => 
 
     const pageNumbers = usePages(
         pageNum,
-        finalList.length,
+        finalList,
         perPage
     );
 
