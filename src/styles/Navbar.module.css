@@ -5,6 +5,7 @@
     }
     .SupportLink {
         color: #d1e2e2;
+        font-size: 32px;
     }
     .SupportArea {
         display: flex;
@@ -13,4 +14,14 @@
     .SupportLink:hover {
         text-shadow: 0 0 5px yellow;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+        .SupportLink{
+            font-size: 24px
+        }
+        .Navbar {
+            flex-direction: row;
+            padding: 5px;
+          }
     }

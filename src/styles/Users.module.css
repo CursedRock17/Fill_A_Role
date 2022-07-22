@@ -5,13 +5,12 @@
  }
 
 .filler {
-   height: 50vh;
+   height: 50px;
    background-color: #2C3531;
 }
  
  .contentTable {
    border-collapse: collapse;
-   margin: 0;
    font-size: 15px;
    width: 100%;
    max-width: 100%;
@@ -125,6 +124,7 @@
    display: flex;
    flex-wrap: wrap;
    padding: 10px;
+   justify-content: center;
 }
 
 .ListButton:hover {
@@ -189,7 +189,11 @@
 
 @media (max-width: 500px) {
    .contentTable{
-      font-size: 7px;
+      font-size: 6px;
+      text-align: center;
+      margin-left: 5px;
+      overflow: hidden;
+      width: 98%;
    }
 
    .Loading {
@@ -199,5 +203,13 @@
       width: 10px;
       font-size: 6px;
       margin: 6px;
+   }
+   .contentTable th,
+   .contentTable td {
+     padding: 14px 6px;
+   }
+
+   .indexTag {
+      padding: 4px;
    }
 }

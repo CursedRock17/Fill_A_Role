@@ -78,6 +78,9 @@
   .submitButton { 
     font-size: 18px;
   }
+  .subsectionSR {
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 1200px) {
