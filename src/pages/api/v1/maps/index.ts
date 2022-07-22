@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mapJSON from "../../../../utils/maps.json";
 
-
-export default (req:NextApiRequest, res:NextApiResponse) => {
+const mapsTotal = (req:NextApiRequest, res:NextApiResponse) => {
 
         const {
             method
@@ -20,3 +19,5 @@ export default (req:NextApiRequest, res:NextApiResponse) => {
               res.status(405).end(`Method ${method} Not Allowed`)
           }
 }
+
+export default mapsTotal

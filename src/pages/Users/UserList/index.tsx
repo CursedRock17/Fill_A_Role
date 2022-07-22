@@ -137,8 +137,8 @@ const DropMenu = (props:any) => {
        totalHeroes.push(key);
     }
  
-    const mappedHeroes = totalHeroes.map((idx:string) => 
-          <li className={styles.indexTag}>
+    const mappedHeroes = totalHeroes.map((idx:string, keyNum:number) => 
+          <li key={keyNum} className={styles.indexTag}>
              {idx}
           </li>
     )

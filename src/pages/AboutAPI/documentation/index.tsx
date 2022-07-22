@@ -8,8 +8,8 @@ import styles from "../../../styles/Documentation.module.css"
 
 const DocumentPage:NextPage = () => {
 
-    const heroIndex = heroes.map((index) => 
-        <ul>
+    const heroIndex = heroes.map((index, idx:number) => 
+        <ul key={idx}>
            {index.name} : {index.id}
         </ul>
     )
@@ -23,7 +23,8 @@ const DocumentPage:NextPage = () => {
             <h2 className={styles.TopHeader}> Base API Request: http://localhost:3000/api/v1/</h2>
             <h2 className={styles.TopHeader}> Requests </h2>
             <p> Requests should be made with the Accept: application/json header set. 
-            Although you'll still receive a valid JSON response when this header is not set, any error messages will be formatted in HTML as you haven't explicity requested a JSON response. 
+            Although you will still receive a valid JSON response when this header is not set,
+            any error messages will be formatted in HTML as you haven not explicity requested a JSON response. 
             Additionally, the API only supports GET requests all other methods will fail.
             </p>
 

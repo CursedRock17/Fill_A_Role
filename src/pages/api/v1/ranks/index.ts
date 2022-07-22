@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import rankJSON from "../../../../utils/ranks.json";
 
 
-export default (req:NextApiRequest, res:NextApiResponse) => {
+const ranksTotal = (req:NextApiRequest, res:NextApiResponse) => {
         const {
             method
           } = req
@@ -19,3 +19,5 @@ export default (req:NextApiRequest, res:NextApiResponse) => {
               res.status(405).end(`Method ${method} Not Allowed`)
           }
 }
+
+export default ranksTotal
