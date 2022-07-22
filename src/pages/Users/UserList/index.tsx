@@ -6,20 +6,22 @@ import { setDoc, arrayUnion, doc } from "firebase/firestore";
 
 import styles from "../../../styles/Users.module.css"
 
+import { GroupType } from "../../../Types/UserTypes";
+
 import usePaginateArray from "../../../CustomHooks/usePaginateArray";
 import usePages from "../../../CustomHooks/usePages";
 
 //Going to pass much of what I have as props
 
-export const UsersList:NextPage = (props:any) => {
+export const UsersList:NextPage<{finalList:  GroupType[]}> = ({ finalList }) => {
     const [pageNum, setPageNum] = useState<number>(1);
-    const perPage = 25;
+    const perPage:number = 25;
 
     const changePage = (event:any) => {
         setPageNum(Number(event.target.id))
     }
 
-    const currentUsers = usePaginateArray(pageNum, perPage, props.finalList)
+    const currentUsers = usePaginateArray(pageNum, perPage, finalList)
 
     const listedUsers = currentUsers.map((item:any) =>
     <tr key={item.Id}>
@@ -48,7 +50,7 @@ export const UsersList:NextPage = (props:any) => {
 
     const pageNumbers = usePages(
         pageNum,
-        props.finalList.length,
+        finalList.length,
         perPage
     );
 

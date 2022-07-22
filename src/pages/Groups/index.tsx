@@ -13,14 +13,15 @@ import CheckboxInput  from "../../SpecialPages/SearchPages/Checkbox"
 import { GroupType } from '../../Types/UserTypes';
 
 import { database, auth } from '../../Firebase/FirebaseInit';
-import { arrayUnion, arrayRemove, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, arrayRemove, doc, getDoc, setDoc, updateDoc, FieldValue } from 'firebase/firestore';
 import { onAuthStateChanged, User } from 'firebase/auth'
+
 
 import { nanoid } from 'nanoid'
 
 
 const GroupPage:NextPage = () => {
-    const [groupDetails, setGroupDetails] = useState<GroupType>({} as GroupType);
+    const [groupDetails, setGroupDetails] = useState<GroupType | any>({} as GroupType);
     const [createDetails, setCreateDetails] = useState<GroupType>({Rank: "Bronze", Microphone:false, Region: "Unset", Playstyle: "Anything", SupportOne: "", SupportTwo:"", TankOne: "",  TankTwo: "", DPSOne: "", DPSTwo: "", Gamemode: "Quick Play" } as GroupType)
     const [currentUser, setCurrentUser] = useState<User>();
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
@@ -37,12 +38,12 @@ const GroupPage:NextPage = () => {
 
     const removeField = async(index:number, collectionRef:any) => {
 
-        const GroupsArray = await getDoc(collectionRef);
+        const GroupsArray:any = await getDoc(collectionRef);
 
         if(GroupsArray.exists()){
-            const currentGroup = GroupsArray.data().Groups[index]
+            const currentGroup:GroupType = GroupsArray.data().Groups[index]
 
-            await updateDoc(collectionRef, {
+            await setDoc(collectionRef, {
                 Groups: arrayRemove(currentGroup)
             }, {merge: true})
         }

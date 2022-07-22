@@ -7,6 +7,8 @@ import Navbar from "../../MainComponents/NavBar";
 import Footer from "../../MainComponents/Footer";
 import UsersList from "./UserList/index";
 
+import { GroupType } from "../../Types/UserTypes";
+
 import { database } from "../../Firebase/FirebaseInit";
 import { collection, query, limit, getDocs, startAfter, orderBy } from "firebase/firestore";  
 import { useRouter } from "next/router";
@@ -14,7 +16,7 @@ import { useRouter } from "next/router";
 import { UserDetails } from "../../Types/UserTypes";
 
 const UserSearch:NextPage = () => {
-    const [finalList, setFinalList] = useState<Array<any>>([]);
+   const [finalList, setFinalList] = useState<Array<GroupType>>([{} as GroupType]);
     
     let temporaryList:any = [];
     const filterableArray:any = []
@@ -187,7 +189,7 @@ const UserSearch:NextPage = () => {
  return (
     <div className={styles.top}>
       <Navbar />
-         <UsersList finalList={finalList}/>
+         <UsersList finalList={finalList} />
       <Footer />
     </div>
  );
