@@ -6,7 +6,7 @@ function usePaginateArray(pageNum:number, perPage:number, listToPaginate:Array<a
     
         return currentUsers
     }
-    return []
+    return ["Loading"]
 }
 
 export default usePaginateArray
