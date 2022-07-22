@@ -7,7 +7,7 @@ import { updateProfile } from 'firebase/auth'
 
 export const AccountTextForm = (props:any) => {
     const title = props.title;
-    const detailsContext = useContext(DetailsContext)
+    const detailsContext:any = useContext(DetailsContext)
     //? marks to make things optional
     const[currentSetting, setCurrentSetting] = useState<number | boolean>()
 
