@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 export const LoginButton = (props:any) => {
 
-    const accountContext = useContext(AccountContext);
+    const accountContext:any = useContext(AccountContext);
     const navigate = useRouter();
 
 

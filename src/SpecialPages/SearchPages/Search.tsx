@@ -18,7 +18,7 @@ export const Search = () => {
     //No need to set basic types because it'll interfere with
     //Basic searches
 
-    const [queryDetails, setQueryDetails] = useState<QueryType>({} as QueryType);
+    const [queryDetails, setQueryDetails] = useState<QueryType | any>({} as QueryType);
     const [errorMesage, setErrorMessage] = useState<string> ("")
 
 
