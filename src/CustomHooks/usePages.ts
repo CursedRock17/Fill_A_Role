@@ -64,7 +64,7 @@ const usePages = (currentPage:number , finalList:any , pageSize:number ) => {
     }
 
     }
-  }, [currentPage, finalList.length])
+  }, [currentPage, finalList])
 
 
   return pagination;
