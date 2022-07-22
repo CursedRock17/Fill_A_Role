@@ -11,7 +11,7 @@ export const AccountDetailsButton = (props:any) => {
     //Known things before the process, we just grab these from their respective files
     //They have to be known globally in order for a user to do anything
     const user = auth.currentUser;
-    const detailsContext = useContext(DetailsContext)
+    const detailsContext:any = useContext(DetailsContext)
 
 
     const submitChanges = async() => {
